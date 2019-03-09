@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t pkollarath/docker-react -f Dckerfile.dev .
+  - docker build -t pkollarath/docker-react -f Dockerfile.dev .
 
 script:
   - docker run pkollarath/docker-react npm run test -- --coverage
