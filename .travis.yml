@@ -1,3 +1,6 @@
+language: node_js
+node_js:
+  - "11.10.1"
 sudo: required
 services:
   - docker
@@ -7,7 +10,7 @@ before_install:
 
 script:
   - docker run pkollarath/docker-react npm run test -- --coverage
-  
+
 deploy:
   provide: elasticbeanstalk
   region: "us-west-2"
