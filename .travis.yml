@@ -7,8 +7,10 @@ services:
 
 before_install:
   - docker build -t pkollarath/docker-react -f Dockerfile.dev .
+
 script:
   - docker run pkollarath/docker-react npm run test -- --coverage
+  
 deploy:
   provider: elasticbeanstalk
   region: "us-west-2"
@@ -16,7 +18,7 @@ deploy:
   env: "DockerReact-env"
   bucket_name: "elasticbeanstalk-us-west-2-399408984356"
   bucket_path: "docker-react"
-  on
+  on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
